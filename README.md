@@ -1,26 +1,31 @@
+# inf-llm
+
 ## バージョン管理
 
 backend: Poetry
 frontend: yarn
 
+## 事前にインストール
+
+python: 3.12.8
+node:v14.8.0
 
 ## セットアップ
 
 ```
 # backend
-pip install django
-django-admin startproject my_project
-# あとはスーパーユーザーまで作成
-
-# backend app
 python manage.py startapp backend
+poetry run python manage.py migrate
 
 # frontend
-npx create-next-app .
+poetry install
 
-# backendのdb定義更新
-poetry run python manage.py makemigrations
-poetry run python manage.py migrate
+# .env
+# トップのディレクトリにおく。openai apiキーを記載。
+OPENAI_API_KEY=""
+
+# llama_backend/data
+# 参照したいデータ（PDF・wordなど）をおいておく
 ```
 
 ## 開発用サーバー
@@ -28,9 +33,7 @@ poetry run python manage.py migrate
 ```
 poetry run python manage.py runserver 0.0.0.0:3000
 yarn dev
-poetry run celery -A llama_backend worker --loglevel=debug -l INFO --pool threads
-redis-server
-ollama serve
+poetry run python manage.py process_tasks
 ```
 
 ## ディレクトリ
