@@ -3,11 +3,13 @@
 ## バージョン管理
 
 backend: Poetry
+
 frontend: yarn
 
 ## 事前にインストール
 
 python: 3.12.8
+
 node:v14.8.0
 
 ## セットアップ
