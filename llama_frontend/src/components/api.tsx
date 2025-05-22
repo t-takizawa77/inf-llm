@@ -1,7 +1,7 @@
 'use client'
 
-export async function postQuestion(question_text:String, chatid: null|Number): Promise<Number> {
-  const apiUrl = 'http://0.0.0.0:3000/api/questions/'
+export async function postQuestion(question_text:string, chatid: null|number): Promise<number> {
+  const apiUrl = 'http://localhost:3000/api/questions/'
 
   try {
     const response = await fetch(apiUrl, {
@@ -33,8 +33,8 @@ export async function postQuestion(question_text:String, chatid: null|Number): P
 }
 
 
-export async function getChat(chatid:Number): Promise<[object, boolean]> {
-  const apiUrl = `http://0.0.0.0:3000//api/chats/${chatid}/`
+export async function getChat(chatid:number): Promise<[object, boolean]> {
+  const apiUrl = `http://localhost:3000//api/chats/${chatid}/`
 
   try {
     const response = await fetch(apiUrl, {
