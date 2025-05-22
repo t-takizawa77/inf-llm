@@ -28,10 +28,10 @@ scoop install poetry
 
 ### 2. フロントエンドとバックエンドの環境準備
 
-```
-# pythonのインストール
-# https://www.python.org/ftp/python/3.12.8/python-3.12.8-amd64.exe
+Pythonを以下でインストールしたのち、環境準備を行う
+https://www.python.org/ftp/python/3.12.8/python-3.12.8-amd64.exe
 
+```
 # backendのディレクトリに移動して実行
 cd llama_backend
 poetry install
