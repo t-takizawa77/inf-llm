@@ -44,7 +44,7 @@ poetry install
 トップのディレクトリに.envと名前の付いたファイルをおく。openai apiキーを記載。
 ```OPENAI_API_KEY=""```
 
-### llama_backend/dataにllmで参照したいファイルを置く
+#### llama_backend/dataにllmで参照したいファイルを置く
 
 参照したいデータ（PDF・wordなど）をこのディレクトリに置いておくと、参照してくれます。
 
