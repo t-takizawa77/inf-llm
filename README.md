@@ -40,7 +40,7 @@ poetry run python manage.py migrate
 
 # frontendのディレクトリに移動して実行
 cd llama_frontend
-poetry install
+yarn install
 ```
 
 ### 3. 必要なファイルの準備
