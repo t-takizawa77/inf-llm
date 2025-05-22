@@ -1,5 +1,58 @@
 # inf-llm
 
+## セットアップ方法(windows)
+
+### 1. パッケージ管理ツール Scoop経由で必要なパッケージをインストール
+左下の検索🔍画面で"Powershell"と検索し、Powershellアプリを管理者権限で実行を選択したあと、以下のコマンドを一行ずつ入力する。
+
+``` powershell
+# scoopのインストール
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+scoop bucket add extras
+scoop bucket add versions
+
+# でgitをインストールしていない人はインストール
+scoop install git
+
+# nodeをインストールする
+scoop install nvm yarn
+nvm install 20.11.0
+nvm use 20.11.0
+node -v
+yarn -v
+
+# Python環境とPowetryをインストールする
+scoop install python312
+scoop install poetry
+```
+
+### 2. フロントエンドとバックエンドの環境準備
+
+```
+# backendのディレクトリに移動して実行
+python manage.py startapp backend
+poetry run python manage.py migrate
+
+# frontendのディレクトリに移動して実行
+poetry install
+```
+
+### 3. 必要なファイルの準備
+#### .envファイルの設定
+
+トップのディレクトリに.envと名前の付いたファイルをおく。openai apiキーを記載。
+```OPENAI_API_KEY=""```
+
+### llama_backend/dataにllmで参照したいファイルを置く
+
+参照したいデータ（PDF・wordなど）をこのディレクトリに置いておくと、参照してくれます。
+
+
+### 参照
+- https://scoop.sh/
+
+
 ## バージョン管理
 
 backend: Poetry
@@ -10,25 +63,11 @@ frontend: yarn
 
 python: 3.12.8
 
-node:v14.8.0
+node:v20.11.0
 
 ## セットアップ
 
-```
-# backend
-python manage.py startapp backend
-poetry run python manage.py migrate
 
-# frontend
-poetry install
-
-# .env
-# トップのディレクトリにおく。openai apiキーを記載。
-OPENAI_API_KEY=""
-
-# llama_backend/data
-# 参照したいデータ（PDF・wordなど）をおいておく
-```
 
 ## 開発用サーバー
 
