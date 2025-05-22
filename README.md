@@ -22,19 +22,24 @@ nvm use 20.11.0
 node -v
 yarn -v
 
-# Python環境とPowetryをインストールする
-scoop install python312
+# Poetry環境をインストールする
 scoop install poetry
 ```
 
 ### 2. フロントエンドとバックエンドの環境準備
 
 ```
+# pythonのインストール
+# https://www.python.org/ftp/python/3.12.8/python-3.12.8-amd64.exe
+
 # backendのディレクトリに移動して実行
-python manage.py startapp backend
+cd llama_backend
+poetry install
+poetry run python manage.py startapp backend
 poetry run python manage.py migrate
 
 # frontendのディレクトリに移動して実行
+cd llama_frontend
 poetry install
 ```
 
